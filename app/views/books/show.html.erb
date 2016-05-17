@@ -1,0 +1,35 @@
+
+
+<p id="notice"><%= notice %></p>
+<table class="table table-bordered" width="10">
+<tr>
+	
+	<td>
+  <strong>Title:</strong>
+  </td>
+  <td>
+  <%= @book.title %>
+  </td>
+  </tr>
+  <tr>
+<td><strong>Description:</strong></td>
+<td> <%= @book.description %></td>
+  </tr>
+  <tr>
+ <td> <strong>Author:</strong></td>
+ <td> <%= @book.author %></td>
+ </tr>
+ <tr>
+ <td> <strong>Ref:</strong></td>
+ <td><%= @book.ref %></td>
+  
+</tr>
+</table>
+<!-- <%= link_to 'Edit', edit_book_path(@book) %> | -->
+<%= link_to 'Back', books_path %> |  
+<!-- <%= link_to "Request", new_book_request_path(:parValues=>{ :book_id => @book.id,:user_id=>current_user.id,:status=>1 })%> -->
+<%= link_to "Request Book", 
+            :controller => "book_requests", 
+            :action => "new", 
+            :book_id => @book.id,:user_id=>current_user.id,:status=>:submitted  %>
+

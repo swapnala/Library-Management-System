@@ -1,0 +1,36 @@
+<%if user_signed_in?%>
+<h4>Welcome User!! Search Books and Request for Reading!!</h4>
+<table>
+	<tr align="center" bordercolor="#00e5e6" >
+		
+		
+		<% if current_user.admin?%>
+		<td class="panel-default"width="20%" height="200px" bgcolor="#e5FFFF" style="border-radius:  50px; border-width: 1px" >
+			<h3 class="panel-title"><%= link_to "View Book Request", book_requests_path%></h3>
+		</td>
+		<td width="5%"></td>
+		<td class="panel-default"width="20%"  bgcolor="#e5FFFF" style="border-radius:  50px" align="center">
+			<h3 class="panel-title" ><%= link_to "Add New Book", new_book_path%></h3>
+		</td>
+         
+          <%end%>
+          <td width="5%"></td>
+          <td class="panel-default"width="20%"  bgcolor="#e5FFFF" style="border-radius:  50px">
+			<h3 class="panel-title"><%= link_to "View Books", '/books'%></h3>
+		</td>
+     
+	</tr>
+</table>
+
+
+<%else%>
+<div class="center jumbotron">
+<% provide(:title, "Home") %>
+
+	<h1>Cummins Library</h1>
+	<p>Welcome User!!</p>
+	
+<%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+</div>
+<%end%>
+

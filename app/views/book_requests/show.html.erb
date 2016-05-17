@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<%= form_for(@book_request) do |f| %>
+  <% if @book_request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@book_request.errors.count, "error") %> prohibited this book_request from being saved:</h2>
+
+      <ul>
+      <% @book_request.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="field">
+    <%= f.label 'Book Title' %><br>
+    <%=  @book_request.book.title %>
+  </div>
+  <div class="field">
+    <%= f.label 'Book Ref' %><br>
+    <%= @book_request.book.ref %>
+  </div>
+  <div class="field">
+    <%= f.label 'Requester WWID' %><br>
+    <%= @book_request.user.wwid%>
+  </div>
+  <div class="field">
+    <%= f.label 'Status' %><br>
+    
+  	<%= @book_request.status %>
+ 
+  </div>
+  <div class="field">
+   
+   
+    <%= f.hidden_field :book_id,:value=>@book_request.book.id%>
+    <%= f.hidden_field :user_id,:value=>@book_request.user.id%>
+  </div>
+  <div class="field">
+   
+   
+    <%= f.label 'Issue Date' %><br>
+    
+  	<%= @book_request.issue_date %>
+  	<div class="field">
+   
+   
+    <%= f.label 'Return Date' %><br>
+    
+  	<%= @book_request.return_date %>
+  </div>
+  
+  
+<% end %>
+
+<%= link_to 'Update Book Request Details - Approve/Reject/Enter Issue/Return Date', edit_book_request_path(@book_request) %> |
+<%= link_to 'Back', book_requests_path %>
