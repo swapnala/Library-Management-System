@@ -4,11 +4,18 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @search = Book.search(params[:q])
-    @books = @search.result
+    # @search = Book.search(params[:q])
+    # @books = @search.result
     # .order( 'title ASC').paginate(:per_page => 5, :page => params[:page])
    
     # @books = Book.all
+    
+    @books = Book.all
+  if params[:search]
+    @books = Book.search(params[:search]).order("title ASC")
+  else
+    @books = Book.all.order('title ASC')
+  end
   end
 
   # GET /books/1

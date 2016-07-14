@@ -1,4 +1,4 @@
-<h2>Become a Cummins Library User!!</h2>
+<h2>Become a Paperback User!!</h2>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -8,7 +8,10 @@
 	<%= f.email_field :email, autofocus: true %>
   
   	<%= f.label :wwid %><br />
-    <%= f.password_field :wwid, autocomplete: "off" %>
+    <%= f.text_field :wwid, autocomplete: "off" %>
+    
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autocomplete: "off" %>
     
     <%= f.label :entity %><br />
     <%= f.select :entity_id, options_from_collection_for_select(Entity.all, 'id', 'name') , class: 'form-group'%>

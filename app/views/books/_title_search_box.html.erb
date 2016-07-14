@@ -1,23 +1,16 @@
 <div class="row">
-<% content_for :search do %>
-
-  <div class="col-md-6 col-md-offset-3" >
-  <%= search_form_for @search do |f| %>
-    <%= f.text_field :title_cont, class: 'form-control', placeholder: "Book title" %>
-    <%= f.text_field :author_cont, class: 'form-control', placeholder: "Author" %>
-    <%= f.text_field :ref_cont, class: 'form-control', placeholder: "Book Reference" %>
-</div>
-  <div >
-                  <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-                  
-               </div>
-               <br/>
+  	
+	  <%= form_tag(books_path, :method => "get", id: "search-form") do %>
+	<div class="col-md-6 col-md-offset-3" >
+		<%= text_field_tag :search,  params[:search], placeholder: "Search Books by Title or Author" , class: 'form-control' %>
+	</div>
+	<div >
+		<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+ 	</div>
+  <br/>
               
-                
-               
-    <!-- <div class="large-4 small-3 columns">
-      <%= f.submit "Search", class: "radius-right button" %>
-    </div -->
+  
   <% end %>
-<% end %>
+
 </div>
+
