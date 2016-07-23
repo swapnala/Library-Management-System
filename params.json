@@ -1,0 +1,6 @@
+{
+  "name": "Library-management-system",
+  "tagline": "",
+  "body": "### Welcome to Library-Management-System\r\nThis is a pet project created to provide a repository of the books available allowing users to browse through the listings and send a request to issue the book. The library SPOCS would approve the request and notify the user as to when to collect the book from the library. This project has been named as \"Paperback\" for Cummins Tech Centre.\r\n\r\n### Contact Us:\r\nIf you are interested in collaborating or using this project please buzz me up at acharya.swapnal@gmail.com",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
