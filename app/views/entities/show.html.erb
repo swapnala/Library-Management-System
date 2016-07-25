@@ -1,0 +1,24 @@
+<div class="container">
+
+<p id="notice"><%= notice %></p>
+<table class="table table-bordered" width="10">
+<tr>
+	
+	<td>
+  <strong>Entity NAme</strong>
+  </td>
+  <td>
+  <%= @entity.name %>
+  </td>
+  </tr>
+  <tr>
+<td><strong>SPOCS</strong></td>
+<td> <%= @entity.spoc_wwid %></td>
+  </tr>
+ 
+</table>
+
+<%= link_to 'Back', entities_path %> |  
+
+<%= link_to 'Delete', @entity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</div>

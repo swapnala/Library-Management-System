@@ -5,24 +5,20 @@
 
 <% if @books.present? %>
  
-
+ <div class="container">
  <table class="table table-hover"  >
- 	
+ 	<!-- Page Content -->
+   
+
+        <!-- Page Features -->
+        <div class="row text-center">
+
 <% @books.each do |book| %>
 <tr >
-<td   bgcolor="#e5FFFF" style="border-radius:  50px" align="center" >
-
-	
-
-
-  <!-- <div class="panel-body"> -->
-    <h3 class="panel-title"><%= link_to(book.title, book) %></h3>
-    
-  <!-- </div> -->
-  
-
-
-
+<td  >
+<div class="thumbnail">
+                    <img src="/assets/book.png" alt="">
+</div>
 </td>
 <td width="80%">
  <!-- <div class="col-md-offset-3"> -->
@@ -45,10 +41,9 @@
 </tr>
 <tr height="20px"></tr>
 <% end %>
-
-
+</div>
 </table>
-
+</div>
 <% else %>
   <p>There are no books containing the term(s) <%= params[:search] %>.</p>
 <% end %>

@@ -1,9 +1,10 @@
-
+<div class="container">
 <div class="row">
 	<h3>Update the Book Request Details - Approve|Reject|Enter Issued Date|Return Date</h3>
   <div class="col-md-6 col-md-offset-3">
   	
 <%= form_for(@book_request) do |f| %>
+<table class="table-bordered">
   <% if @book_request.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@book_request.errors.count, "error") %> prohibited this book_request from being saved:</h2>
@@ -15,43 +16,67 @@
       </ul>
     </div>
   <% end %>
-<div class="field">
-    <%= f.label 'Book Title' %><br>
+<tr>
+	<td>
+    <%= f.label 'Book Title' %><br></td><td>
     <%=  @book_request.book.title %>
-  </div>
-  <div class="field">
-    <%= f.label 'Book Ref' %><br>
+ </td>
+ </tr><tr>
+ 	<td>
+    <%= f.label 'Book Ref' %><br></td><td>
     <%= @book_request.book.ref %>
-  </div>
-  <div class="field">
+  </td>
+    </tr>
+  <tr>
+  	<td>
+
     <%= f.label 'Requester WWID' %><br>
+    </td><td>
     <%= @book_request.user.wwid%>
-  </div>
-  <div class="field">
+  </td>
+  </tr>
+  <tr><td>
+
     <%= f.label 'Update the Status To' %><br>
+    </td>
+    <td>
     <%=f.select :status, options_for_select({"Approved"=> "approved", "Rejected"=> "rejected"}, f.object.status || default_value)%>
-  </div>
-  <div class="field">
+  </td>
+  </tr>
+  <tr>
+ <td>
     <%= f.label 'Issued date' %><br>
+    </td><td>
     <%= date_field :book_request,:issue_date%>
-  </div>
-    <div class="field">
-    <%= f.label 'Return date' %><br>
+  </td>
+  </tr>
+  <tr>
+   <td>
+    <%= f.label 'Return date' %><br></td>
+    <td>
     <%=date_field :book_request,:return_date%>
-  </div>
-  <div class="field">
+  </td>
+  </tr>
+  <tr>
+  <td>
    
    
     <%= f.hidden_field :book_id,:value=>@book_request.book.id%>
+    </td>
+    <td>
     <%= f.hidden_field :user_id,:value=>@book_request.user.id%>
-  </div>
+ </td>
+  </tr>
   
   
-  <div class="actions">
-    <%= f.submit "Approve"%>
+  
+</table>
+<div class="actions">
+    <%= f.submit "Approve" ,class: 'btn btn-warning' %>
   </div> 
-  
-<% end %>
+  <% end %>
+
 </div></div>
 <%= link_to 'Show', @book_request %> |
 <%= link_to 'Back', book_requests_path %>
+</div>

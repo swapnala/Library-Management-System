@@ -10,12 +10,16 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   get 'static_pages/help'
-
+ 
+ 
+ 
   devise_for :users do
    get "signup", to: "devise/registrations#new"
    get "login", to: "devise/sessions#new"
    get "logout", to: "devise/sessions#destroy"
 end
+resources :users
+resources :entities
   resources :books do
     collection { post :search, to: 'books#index' }
   end
@@ -26,6 +30,8 @@ end
   #root 'books#index'
 get 'books/new'
    post 'books/create'
+   
+ 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

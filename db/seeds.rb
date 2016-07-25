@@ -9,3 +9,5 @@ require 'csv'
 CSV.foreach(Rails.root.join("db/seeds_data/books.csv"), headers: true) do |row|
   Book.find_or_create_by(title: row[0], description: row[1], author: row[2], ref: row[3],genre: row[4])
 end
+
+Entity.create(name: "RNT&ANT", spoc_wwid: "mx043")

@@ -1,0 +1,15 @@
+<div class="container" >
+<table class="table">
+	<tr>
+	
+	<th>Entity Name</th>
+	
+	</tr>
+   <% @entities.each do |entity| %>
+   <tr>
+   	<td><%= link_to(entity.name, entity) %></td>
+   </tr>
+   <% end %>
+</table>
+<%= link_to 'Add Entity', new_entity_path %> | 
+</div>

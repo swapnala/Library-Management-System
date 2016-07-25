@@ -1,0 +1,27 @@
+<div class="container" >
+<table class="table">
+	<tr>
+	
+	<th>WWID</th>
+	<th>Name</th>
+	<th>Admin</th>
+	<th>Email</th>
+	<th>Entity</th>
+	</tr>
+   <% @users.each do |user| %>
+   <tr>
+   
+   	<td> <%= link_to(user.wwid, user) %></td>
+   	<td> <%= link_to(user.name, user) %></td>
+   	<% if user.admin? %>
+   	<td> Admin</td>
+   	<%else%>
+   	<td> User</td>
+   	<%end%>
+   	
+   	<td> <%= link_to(user.email, user) %></td>
+   	<td><%= user.entity%></td>
+   </tr>
+   <% end %>
+</table>
+</div>

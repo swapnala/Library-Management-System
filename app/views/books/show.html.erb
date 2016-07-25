@@ -1,4 +1,4 @@
-
+<div class="container">
 
 <p id="notice"><%= notice %></p>
 <table class="table table-bordered" width="10">
@@ -31,5 +31,7 @@
 <%= link_to "Request Book", 
             :controller => "book_requests", 
             :action => "new", 
-            :book_id => @book.id,:user_id=>current_user.id,:status=>:submitted  %>
-
+            :book_id => @book.id,:user_id=>current_user.id,:status=>:submitted  %> |
+           
+            <%= link_to 'Delete', @book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</div>
